@@ -1,9 +1,11 @@
 import requests
 import time
 
-# Бот, который мониторит цены на валюты
-# Если цена продажи больше, чем цена покупки, то бот использует это
-# Для простоты проверка исключений опущена
+# Bot monitoring currency rates
+# If at some moment selling rate is higher than buying rate, bot will abuse it
+# to get as much money as it can
+
+# For simplicity, exception handling is omitted
 
 
 class ExchangeService:
@@ -40,7 +42,7 @@ class Bot:
     def main_loop(self):
         balance = self.balance
         print('Balance:', balance)
-        while balance < 1_000_000:  # Пока не станем миллионерами
+        while balance < 1_000_000:  # Until we become a millionaire
             currencies = self.exchange_service.get_currencies()
 
             for currency in currencies:
